@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">org</span><span class="s2">.</span><span class="s1">example</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Main </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">// Crear una nueva agenda.</span>
+        <span class="s1">Agenda agenda </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Agenda</span><span class="s2">();</span>
+
+        <span class="s1">// Añadir contactos a la agenda.</span>
+        <span class="s1">agenda</span><span class="s2">.</span><span class="s1">addContact</span><span class="s2">(</span><span class="s3">&quot;John Doe&quot;</span><span class="s2">, </span><span class="s3">&quot;1234567890&quot;</span><span class="s2">);</span>
+        <span class="s1">agenda</span><span class="s2">.</span><span class="s1">addContact</span><span class="s2">(</span><span class="s3">&quot;Jane Doe&quot;</span><span class="s2">, </span><span class="s3">&quot;9876543210&quot;</span><span class="s2">);</span>
+        <span class="s1">agenda</span><span class="s2">.</span><span class="s1">addContact</span><span class="s2">(</span><span class="s3">&quot;Mary Jane&quot;</span><span class="s2">, </span><span class="s3">&quot;1122334455&quot;</span><span class="s2">);</span>
+
+        <span class="s1">// Imprimir todos los contactos de la agenda.</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Todos los contactos: &quot;</span><span class="s2">);</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Contacto c </span><span class="s2">: </span><span class="s1">agenda</span><span class="s2">.</span><span class="s1">getContacts</span><span class="s2">()) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">c</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">() + </span><span class="s3">&quot; -&gt; &quot; </span><span class="s2">+ </span><span class="s1">c</span><span class="s2">.</span><span class="s1">getPhones</span><span class="s2">());</span>
+        <span class="s2">}</span>
+
+        <span class="s1">// Añadir un nuevo teléfono a un contacto existente.</span>
+        <span class="s1">agenda</span><span class="s2">.</span><span class="s1">addContact</span><span class="s2">(</span><span class="s3">&quot;John Doe&quot;</span><span class="s2">, </span><span class="s3">&quot;6543219876&quot;</span><span class="s2">);</span>
+
+        <span class="s1">// Eliminar un contacto de la agenda.</span>
+        <span class="s1">agenda</span><span class="s2">.</span><span class="s1">removeContact</span><span class="s2">(</span><span class="s3">&quot;Jane Doe&quot;</span><span class="s2">);</span>
+
+        <span class="s1">// Modificar el teléfono de un contacto existente en la agenda.</span>
+        <span class="s1">agenda</span><span class="s2">.</span><span class="s1">modifyPhoneNumber</span><span class="s2">(</span><span class="s3">&quot;John Doe&quot;</span><span class="s2">, </span><span class="s3">&quot;1234567890&quot;</span><span class="s2">, </span><span class="s3">&quot;6666666666&quot;</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">Después de añadir, eliminar y modificar contactos: &quot;</span><span class="s2">);</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Contacto c </span><span class="s2">: </span><span class="s1">agenda</span><span class="s2">.</span><span class="s1">getContacts</span><span class="s2">()) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">c</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">() + </span><span class="s3">&quot; -&gt; &quot; </span><span class="s2">+ </span><span class="s1">c</span><span class="s2">.</span><span class="s1">getPhones</span><span class="s2">());</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

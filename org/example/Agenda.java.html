@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>Agenda.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #67a37c; font-style: italic;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Agenda.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">org</span><span class="s2">.</span><span class="s1">example</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Iterator</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+
+<span class="s3">/**</span>
+ <span class="s3">* Clase Agenda que representa una agenda telefónica</span>
+ <span class="s3">* Contiene operaciones para añadir, eliminar y modificar contactos</span>
+ <span class="s3">*/</span>
+<span class="s0">public class </span><span class="s1">Agenda </span><span class="s2">{</span>
+    <span class="s1">// Lista de contactos en la agenda</span>
+    <span class="s0">private </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">Contacto</span><span class="s2">&gt; </span><span class="s1">contacts</span><span class="s2">; </span><span class="s1">// Lista de Contacto</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Constructor para crear una nueva Agenda</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">Agenda</span><span class="s2">() {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">contacts </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Añade un nuevo contacto a la agenda o un nuevo teléfono a un contacto existente</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">name Nombre del contacto a añadir</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">phone Telefono del contacto a añadir</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">addContact</span><span class="s2">(</span><span class="s1">String name</span><span class="s2">, </span><span class="s1">String phone</span><span class="s2">) {</span>
+        <span class="s0">boolean </span><span class="s1">exists </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Contacto c </span><span class="s2">: </span><span class="s1">contacts</span><span class="s2">) {</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">c</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">().</span><span class="s1">equalsIgnoreCase</span><span class="s2">(</span><span class="s1">name</span><span class="s2">)) {</span>
+                <span class="s1">exists </span><span class="s2">= </span><span class="s0">true</span><span class="s2">;</span>
+                <span class="s1">c</span><span class="s2">.</span><span class="s1">getPhones</span><span class="s2">().</span><span class="s1">add</span><span class="s2">(</span><span class="s1">phone</span><span class="s2">);</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+
+        <span class="s0">if </span><span class="s2">(!</span><span class="s1">exists</span><span class="s2">) {</span>
+            <span class="s1">Contacto newContact </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Contacto</span><span class="s2">(</span><span class="s1">name</span><span class="s2">, </span><span class="s1">phone</span><span class="s2">);</span>
+            <span class="s1">contacts</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">newContact</span><span class="s2">);</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Elimina un contacto de la agenda basandose en el nombre</span>
+     <span class="s3">*</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">name Nombre del contacto a eliminar</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">removeContact</span><span class="s2">(</span><span class="s1">String name</span><span class="s2">) {</span>
+        <span class="s1">Iterator</span><span class="s2">&lt;</span><span class="s1">Contacto</span><span class="s2">&gt; </span><span class="s1">it </span><span class="s2">= </span><span class="s1">contacts</span><span class="s2">.</span><span class="s1">iterator</span><span class="s2">();</span>
+
+        <span class="s0">while </span><span class="s2">(</span><span class="s1">it</span><span class="s2">.</span><span class="s1">hasNext</span><span class="s2">()) {</span>
+            <span class="s1">Contacto c </span><span class="s2">= </span><span class="s1">it</span><span class="s2">.</span><span class="s1">next</span><span class="s2">();</span>
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">c</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">().</span><span class="s1">equalsIgnoreCase</span><span class="s2">(</span><span class="s1">name</span><span class="s2">)) {</span>
+                <span class="s1">it</span><span class="s2">.</span><span class="s1">remove</span><span class="s2">();</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Modifina el numero de telefono de un contacto existente</span>
+     <span class="s3">*</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">name Nombre del contacto cuyo número se desea modificar</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">oldPhone El numero de telefono antiguo que se desea remplazar</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">newPhone El nuevo numero de telefono que se desea establecer</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">modifyPhoneNumber</span><span class="s2">(</span><span class="s1">String name</span><span class="s2">, </span><span class="s1">String oldPhone</span><span class="s2">, </span><span class="s1">String newPhone</span><span class="s2">) {</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Contacto c </span><span class="s2">: </span><span class="s1">contacts</span><span class="s2">) {</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">c</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">().</span><span class="s1">equalsIgnoreCase</span><span class="s2">(</span><span class="s1">name</span><span class="s2">)) {</span>
+                <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">phones </span><span class="s2">= </span><span class="s1">c</span><span class="s2">.</span><span class="s1">getPhones</span><span class="s2">();</span>
+
+                <span class="s0">int </span><span class="s1">index </span><span class="s2">= </span><span class="s1">phones</span><span class="s2">.</span><span class="s1">indexOf</span><span class="s2">(</span><span class="s1">oldPhone</span><span class="s2">);</span>
+
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">index </span><span class="s2">!= -</span><span class="s5">1</span><span class="s2">) {</span>
+                    <span class="s1">phones</span><span class="s2">.</span><span class="s1">set</span><span class="s2">(</span><span class="s1">index</span><span class="s2">, </span><span class="s1">newPhone</span><span class="s2">);</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Obtiene la lista de todos los contactos en la agenda</span>
+     <span class="s3">*</span>
+     <span class="s3">* </span><span class="s4">@return </span><span class="s3">Lista de todos los contactos</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">Contacto</span><span class="s2">&gt; </span><span class="s1">getContacts</span><span class="s2">() {</span>
+        <span class="s0">return this</span><span class="s2">.</span><span class="s1">contacts</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Contacto.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #67a37c; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Contacto.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">org</span><span class="s2">.</span><span class="s1">example</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+
+<span class="s3">/**</span>
+ <span class="s3">* Clase Contacto que representa la información de contacto de una persona</span>
+ <span class="s3">* Contiene el nombre del contacto y una lista de numeros de telefono asociados</span>
+ <span class="s3">*/</span>
+<span class="s0">public class </span><span class="s1">Contacto </span><span class="s2">{</span>
+    <span class="s0">private </span><span class="s1">String name</span><span class="s2">; </span><span class="s1">//Nombre del contacto</span>
+    <span class="s0">private </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">phones</span><span class="s2">; </span><span class="s1">//Lista de numeros de telefono del contacto</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Constructor para crear un nuevo contacto</span>
+     <span class="s3">*</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">name Nombre del contacto</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">phone Numero de telefono inicial del contacto</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">Contacto</span><span class="s2">(</span><span class="s1">String name</span><span class="s2">, </span><span class="s1">String phone</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">name </span><span class="s2">= </span><span class="s1">name</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">phones </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">phones</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">phone</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Devuelve el nombre del contacto</span>
+     <span class="s3">*</span>
+     <span class="s3">* </span><span class="s4">@return </span><span class="s3">El nombre del contacto</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">String getName</span><span class="s2">() {</span>
+        <span class="s0">return this</span><span class="s2">.</span><span class="s1">name</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Devuelve la lista de numeros de telefono del contacto</span>
+     <span class="s3">*</span>
+     <span class="s3">* </span><span class="s4">@return </span><span class="s3">una lista de numeros de telefono asociados al contacto</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">getPhones</span><span class="s2">() {</span>
+        <span class="s0">return this</span><span class="s2">.</span><span class="s1">phones</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

@@ -4,13 +4,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Clase Agenda que representa una agenda telefónica
+ * Contiene operaciones para añadir, eliminar y modificar contactos
+ */
 public class Agenda {
+    // Lista de contactos en la agenda
     private List<Contacto> contacts; // Lista de Contacto
 
+    /**
+     * Constructor para crear una nueva Agenda
+     */
     public Agenda() {
         this.contacts = new ArrayList<>();
     }
 
+    /**
+     * Añade un nuevo contacto a la agenda o un nuevo teléfono a un contacto existente
+     * @param name Nombre del contacto a añadir
+     * @param phone Telefono del contacto a añadir
+     */
     public void addContact(String name, String phone) {
         boolean exists = false;
         for (Contacto c : contacts) {
@@ -27,6 +40,11 @@ public class Agenda {
         }
     }
 
+    /**
+     * Elimina un contacto de la agenda basandose en el nombre
+     *
+     * @param name Nombre del contacto a eliminar
+     */
     public void removeContact(String name) {
         Iterator<Contacto> it = contacts.iterator();
 
@@ -39,6 +57,13 @@ public class Agenda {
         }
     }
 
+    /**
+     * Modifina el numero de telefono de un contacto existente
+     *
+     * @param name Nombre del contacto cuyo número se desea modificar
+     * @param oldPhone El numero de telefono antiguo que se desea remplazar
+     * @param newPhone El nuevo numero de telefono que se desea establecer
+     */
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
         for (Contacto c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
@@ -53,6 +78,11 @@ public class Agenda {
         }
     }
 
+    /**
+     * Obtiene la lista de todos los contactos en la agenda
+     *
+     * @return Lista de todos los contactos
+     */
     public List<Contacto> getContacts() {
         return this.contacts;
     }
